@@ -1,12 +1,12 @@
 {
-  "notes": "普通服务器 0.12.9：客户端与超频工具支持 GitHub 优先下载（rmos-client 仓库），GitHub 不可用时回退平台服务器；总服务器每 30 分钟自动检查 GitHub 发布，也可在客户端版本页手动同步；每个编译版本均保留；矿机页新增升级客户端按钮与 SSH 手动升级指令提示。",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/v0.12.9/rmos-server-linux-amd64",
-      "sha256": "c70e5995dce9ac1265cc1941e4291bb49b3cd786fde682dbacde9e503fe06998"
+      "sha256": "e99f0d0502f9fda8b0dac8961079ede4f3ecc9cb4e5c3b4bec4c2a04b3ad131c",
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.13.0/rmos-server-linux-amd64"
     }
   },
-  "docker_image": "rmos-server:0.12.9",
+  "notes": "用户服务器 0.13.0：控制台首屏加载提速（关键数据先行渲染），F5 刷新更快；切回控制台不再短暂闪离线；Docker 部署优化为 docker compose 一键构建启动；默认环境变量与管理界面统一使用“用户服务器”名称。",
   "min_version": "0.11.0",
-  "version": "0.12.9"
+  "docker_image": "rmos-server:0.13.0",
+  "version": "0.13.0"
 }
