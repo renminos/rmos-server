@@ -1,12 +1,12 @@
 {
   "assets": {
     "linux-amd64": {
-      "sha256": "e99f0d0502f9fda8b0dac8961079ede4f3ecc9cb4e5c3b4bec4c2a04b3ad131c",
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.13.0/rmos-server-linux-amd64"
+      "sha256": "cd18b095d0f0143b789e5b54ce270d25f6f00f32ee4e3120215de53e9d4abd92",
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.13.1/rmos-server-linux-amd64"
     }
   },
-  "notes": "用户服务器 0.13.0：控制台首屏加载提速（关键数据先行渲染），F5 刷新更快；切回控制台不再短暂闪离线；Docker 部署优化为 docker compose 一键构建启动；默认环境变量与管理界面统一使用“用户服务器”名称。",
+  "notes": "用户服务器 0.13.1：批量升级与单机升级弹窗增加复制 SSH 指令按钮；控制台链上充值改为先输入金额再请求收款地址；平台管理多个页面布局与滚动问题优化。",
   "min_version": "0.11.0",
-  "docker_image": "rmos-server:0.13.0",
-  "version": "0.13.0"
+  "docker_image": "rmos-server:0.13.1",
+  "version": "0.13.1"
 }
