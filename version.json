@@ -1,12 +1,12 @@
 {
-  "min_version": "0.11.0",
+  "docker_image": "rmos-server:0.14.4",
+  "notes": "用户服务器 0.14.4：随包客户端升级至 0.10.44（修复 Rigel 每卡算力显示相同、通用 Miner 矿池 URL 协议前缀被剥除、HiveOS Miner 包兼容性增强）。",
+  "version": "0.14.4",
   "assets": {
     "linux-amd64": {
-      "sha256": "bf9aa6ff672bf11c7fb310709d52b7078e54eccf166212a55d4927a328d69707",
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.3/rmos-server-linux-amd64"
+      "sha256": "b82c7bf2e1b5206a38b884707138009550ee83718634a3667441aaeed3590fb3",
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.4/rmos-server-linux-amd64"
     }
   },
-  "version": "0.14.3",
-  "notes": "用户服务器 0.14.3：随包客户端升级至 0.10.43（修复通用 Miner 矿池 URL 协议前缀被剥除、HiveOS Miner 包兼容性增强）。",
-  "docker_image": "rmos-server:0.14.3"
+  "min_version": "0.11.0"
 }
