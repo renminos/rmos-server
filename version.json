@@ -1,12 +1,12 @@
 {
+  "docker_image": "rmos-server:0.14.2",
+  "min_version": "0.11.0",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.1/rmos-server-linux-amd64",
-      "sha256": "59ca54fa6f10a01d95e75d2dc89050a69d2c339b68d31db80bc63156f7873b4d"
+      "sha256": "5336576e946410cd982d8df20838cd5bc4df7acfc43c3ae18bbf1b76c5be04e7",
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.2/rmos-server-linux-amd64"
     }
   },
-  "min_version": "0.11.0",
-  "docker_image": "rmos-server:0.14.1",
-  "notes": "用户服务器 0.14.1：客户端版本页支持从 GitHub 同步（GitHub 不可用时自动回退总服务器）；矿机详情页飞行表显示当前使用中的醒目标记与正确的已应用矿机数量；剪贴板导入飞行表改为直接弹出粘贴窗口；删除发布版本手工录入；自定义 Miner（如 SRBMiner）HiveOS 包配置写入修复。",
-  "version": "0.14.1"
+  "notes": "用户服务器 0.14.2：算力显示自动换算为最合适单位（H/s～PH/s），矿机无单位算力按 H/s 处理；矿机详情页飞行表当前使用中醒目标记与正确已应用数量；剪贴板导入飞行表直接弹出粘贴窗口；随包客户端升级至 0.10.42。",
+  "version": "0.14.2"
 }
