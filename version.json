@@ -1,12 +1,12 @@
 {
+  "notes": "用户服务器 0.14.0：管理员控制台支持链上充值（先输入金额再请求收款地址，BSC/ETH）；矿机 miner 后台日志增加下载进度与启动提示；客户端升级为 GitHub 优先。",
+  "version": "0.14.0",
   "assets": {
     "linux-amd64": {
-      "sha256": "cd18b095d0f0143b789e5b54ce270d25f6f00f32ee4e3120215de53e9d4abd92",
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.13.1/rmos-server-linux-amd64"
+      "sha256": "523162de1b571ae5787a0c149674f05270c8b375b2581eaeba0e8d2a1c18972f",
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.0/rmos-server-linux-amd64"
     }
   },
-  "notes": "用户服务器 0.13.1：批量升级与单机升级弹窗增加复制 SSH 指令按钮；控制台链上充值改为先输入金额再请求收款地址；平台管理多个页面布局与滚动问题优化。",
   "min_version": "0.11.0",
-  "docker_image": "rmos-server:0.13.1",
-  "version": "0.13.1"
+  "docker_image": "rmos-server:0.14.0"
 }
