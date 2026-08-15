@@ -1,12 +1,12 @@
 {
-  "min_version": "0.11.0",
-  "notes": "用户服务器 0.14.8：修复矿机安装时从 GitHub 下载客户端导致速度受限的问题，install.sh 改为优先从用户服务器自身下载客户端二进制（GitHub 仅作兜底）；添加矿机弹窗未配置“客户端连接地址”时自动使用当前页面访问地址生成安装命令。",
-  "docker_image": "rmos-server:0.14.8",
   "assets": {
     "linux-amd64": {
-      "sha256": "1d9f88e64fafb2dcc9c03a88d6a389833e2d0c541340c5b55c6d1d888cedd03b",
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.8/rmos-server-linux-amd64"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.9/rmos-server-linux-amd64",
+      "sha256": "f1caddb1d4aad187b7384951e6675d6b6b89ec23ff006f07f7880171b4fc2f7a"
     }
   },
-  "version": "0.14.8"
+  "version": "0.14.9",
+  "docker_image": "rmos-server:0.14.9",
+  "min_version": "0.11.0",
+  "notes": "用户服务器 0.14.9：彻底修复矿机安装指令仍从总服务器/GitHub 下载客户端的问题——install.sh 与前端界面已嵌入服务端二进制，一键升级后安装指令始终优先从本用户服务器下载客户端（GitHub 仅兜底）；用户服务器客户端版本页禁止发布/删除版本，仅保留从 GitHub 或总服务器同步。"
 }
