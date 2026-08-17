@@ -42,6 +42,7 @@ cp .env.example .env
 docker compose up -d --build
 ```
 
+注意网页控制台默认端口是18808.
 数据保存在 `docker/data/`，容器会随主机重启自动恢复运行。
 
 > 也可以从 [Releases](https://github.com/renminos/rmos-server/releases) 下载完整发布包，`ubuntu/` 目录用于直接部署，`docker/` 目录用于 Docker Compose 部署。
