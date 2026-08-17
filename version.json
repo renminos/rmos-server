@@ -1,12 +1,12 @@
 {
-  "docker_image": "rmos-server:0.14.11",
-  "version": "0.14.11",
-  "notes": "用户服务器 0.14.11：修复矿机详情算力/功耗图表一直停留在“等待采集数据”；平台信息框显示 Linux 发行版/内核版本与主板型号；GPU 驱动版本移入 GPU 信息框，并以绿/红/蓝区分 NVIDIA/AMD/Intel。",
+  "version": "0.14.13",
+  "min_version": "0.11.0",
   "assets": {
     "linux-amd64": {
-      "sha256": "39d39b87ca60b610bfa76caf9806fa4f2d7c493a29fefc58751d81e17bf3c60a",
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.11/rmos-server-linux-amd64"
+      "sha256": "2250f228e89aae3582934b51223b11cf980116827b0031950f117675c85e38d2",
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.13/rmos-server-linux-amd64"
     }
   },
-  "min_version": "0.11.0"
+  "docker_image": "rmos-server:0.14.13",
+  "notes": "用户服务器 0.14.13：修复充值码兑换——同一充值码不会重复核销、不会重复扣款；兑换请求自动切换到活跃总服务器节点，避免高可用备节点导致的到账/核销不一致；并支持与总服务器账目对账补记。"
 }
