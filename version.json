@@ -1,12 +1,12 @@
 {
-  "notes": "用户服务器 0.14.15：修复矿机无法接收指令的问题——服务器定时补发队列中尚未确认下发的指令，避免矿机短暂断线后飞行表/超频指令永久滞留；配套客户端 0.10.53 为 nvidia-smi 检测增加超时保护，防止 Miner 占用控制锁时心跳循环被挂起。",
-  "docker_image": "rmos-server:0.14.15",
-  "version": "0.14.15",
+  "docker_image": "rmos-server:0.14.16",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.15/rmos-server-linux-amd64",
-      "sha256": "f4cf7f184427bbee94648328fa1b6b205ade84147d85442bcc9b20265de6395e"
+      "sha256": "38b9dc72482292479dd19fed0c14fa8b42244159b9ecd4b291f1450bfcaf4632",
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.16/rmos-server-linux-amd64"
     }
   },
+  "notes": "用户服务器 0.14.16：内置 Linux 矿机客户端更新至 0.10.54——修复切换 Miner（如 wildrig → rigel）后算力轮询器未清理、导致矿机上报算力为 0 的问题；沿用 0.14.15 的指令定时补发机制与 0.10.53 的 nvidia-smi 超时保护。",
+  "version": "0.14.16",
   "min_version": "0.11.0"
 }
