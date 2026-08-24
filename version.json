@@ -1,12 +1,12 @@
 {
-    "version":  "0.14.14",
-    "min_version":  "0.11.0",
-    "assets":  {
-                   "linux-amd64":  {
-                                       "sha256":  "99846a45ff91d6707d116f45ef53a0614e1730e60da1ba3d7fc921650ffd0e79",
-                                       "url":  "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.14/rmos-server-linux-amd64"
-                                   }
-               },
-    "docker_image":  "rmos-server:0.14.14",
-    "notes":  "用户服务器 0.14.14：节点余额以总服务器为准——连接时展示总服务器权威余额，断连时按每日峰值矿机数本地预估并明确标注；优化总服务器在线判定，心跳频率由 30 秒/60 秒调整为 5 分钟/10 分钟，降低网络负载，避免短暂网络抖动被误判离线。"
+  "notes": "用户服务器 0.14.15：修复矿机无法接收指令的问题——服务器定时补发队列中尚未确认下发的指令，避免矿机短暂断线后飞行表/超频指令永久滞留；配套客户端 0.10.53 为 nvidia-smi 检测增加超时保护，防止 Miner 占用控制锁时心跳循环被挂起。",
+  "docker_image": "rmos-server:0.14.15",
+  "version": "0.14.15",
+  "assets": {
+    "linux-amd64": {
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.15/rmos-server-linux-amd64",
+      "sha256": "f4cf7f184427bbee94648328fa1b6b205ade84147d85442bcc9b20265de6395e"
+    }
+  },
+  "min_version": "0.11.0"
 }
