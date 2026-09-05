@@ -1,12 +1,12 @@
 {
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.17/rmos-server-linux-amd64",
-      "sha256": "b189ff1f56ddfe900541a4365fcef71731f5cf798085d76e5f5ba39d93213327"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.18/rmos-server-linux-amd64",
+      "sha256": "7f7ff5073f9b76100ae2ceb16146f07b03b371a3db8466bc60a5282e4a624b97"
     }
   },
-  "version": "0.14.17",
+  "version": "0.14.18",
   "min_version": "0.11.0",
-  "notes": "用户服务器 0.14.17：内置 Linux 矿机客户端更新至 0.10.61——修复切换 Miner（如 wildrig → rigel）后算力轮询器未清理、导致矿机上报算力为 0 的问题；沿用 0.14.16 的指令定时补发机制与 0.10.61 的 nvidia-smi 超时保护。",
-  "docker_image": "rmos-server:0.14.17"
+  "notes": "用户服务器 0.14.18：控制台界面细节优化（修复警告卡/安装码框/设置向导等处样式变量缺失、网络字体改为异步加载不再阻塞国内首屏、细滚动条与焦点框、钱包卡片与登录页细节）；内置矿机客户端 0.10.62（Linux/Windows 全资产发布）。",
+  "docker_image": "rmos-server:0.14.18"
 }
