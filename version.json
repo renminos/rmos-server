@@ -1,12 +1,6 @@
 {
-  "assets": {
-    "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.21/rmos-server-linux-amd64",
-      "sha256": "05e6bacb9e07f07fe9a0381e2c00dc5e4def06179fe6e7d09e3a8b2190c810e0"
-    }
-  },
-  "version": "0.14.21",
-  "min_version": "0.11.0",
-  "notes": "用户服务器 0.14.21：修复 2001 矿机总算力(按卡累加)；GPU全部超频覆盖单卡；矿机列表在线/离线时间列重构；风扇转速改用 [fan:N]/GPUTargetFanSpeed 正确控制；内置客户端 0.10.65；本版已内置真实前端。",
-  "docker_image": "rmos-server:0.14.21"
+  "assets":{"linux-amd64":{"url":"https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.22/rmos-server-linux-amd64","sha256":"650e842df801aa4a4dd08671cc89ad03c39bb79744d34fd2382dceec9179db9c"}},
+  "version":"0.14.22","min_version":"0.11.0",
+  "notes":"用户服务器 0.14.22：修复矿机背板客户端『release not found』(用户服务器 deployRelease 误用 master 前缀)；2001 等 CMP 矿机每 GPU 算力改由日志按卡累加并填每卡；矿机列表在线/离线时间列第二层字号放大；内置客户端 0.10.66。",
+  "docker_image":"rmos-server:0.14.22"
 }
