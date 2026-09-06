@@ -1,12 +1,12 @@
 {
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.18/rmos-server-linux-amd64",
-      "sha256": "7f7ff5073f9b76100ae2ceb16146f07b03b371a3db8466bc60a5282e4a624b97"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.19/rmos-server-linux-amd64",
+      "sha256": "01070b9c2a3510cf58647e7b590801e26d39932c9fffcd2cd9472863c4f25967"
     }
   },
-  "version": "0.14.18",
+  "version": "0.14.19",
   "min_version": "0.11.0",
-  "notes": "用户服务器 0.14.18：控制台界面细节优化（修复警告卡/安装码框/设置向导等处样式变量缺失、网络字体改为异步加载不再阻塞国内首屏、细滚动条与焦点框、钱包卡片与登录页细节）；内置矿机客户端 0.10.62（Linux/Windows 全资产发布）。",
-  "docker_image": "rmos-server:0.14.18"
+  "notes": "用户服务器 0.14.19（紧急修复：0.14.18 因构建环境变量竞态导致 linux 二进制被编译成 Windows 格式，本版本用正确 linux ELF 重新构建；已清理受影响客户端资产，重新发布 v0.10.63）。",
+  "docker_image": "rmos-server:0.14.19"
 }
