@@ -2,11 +2,11 @@
   "assets": {
     "linux-amd64": {
       "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.14.19/rmos-server-linux-amd64",
-      "sha256": "01070b9c2a3510cf58647e7b590801e26d39932c9fffcd2cd9472863c4f25967"
+      "sha256": "a7d5586a1850c327fd9188ee239c1882c50097154cf541bd242776e976c24149"
     }
   },
   "version": "0.14.19",
   "min_version": "0.11.0",
-  "notes": "用户服务器 0.14.19（紧急修复：0.14.18 因构建环境变量竞态导致 linux 二进制被编译成 Windows 格式，本版本用正确 linux ELF 重新构建；已清理受影响客户端资产，重新发布 v0.10.63）。",
+  "notes": "用户服务器 0.14.19（紧急修复：0.14.18 因构建变量竞态导致 linux 二进制被编译成 Windows 格式；本版本修复架构并同步发布正确客户端 v0.10.63）。",
   "docker_image": "rmos-server:0.14.19"
 }
