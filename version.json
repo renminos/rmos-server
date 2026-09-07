@@ -1,6 +1,6 @@
 {
-  "assets":{"linux-amd64":{"url":"https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.0/rmos-server-linux-amd64","sha256":"df7158e38eef1d847d61012bce9c151d31eacfd145a9636d7ebde7fa26b8fc09"}},
-  "version":"0.15.0","min_version":"0.11.0",
-  "notes":"RMOS 用户服务器 0.15.0（正式版）：界面配色/字体重构（GPT 建议深色+浅色主题、绿色收敛）；矿机列表重构（在线/离线时间列、CPU占用、GPU温度风扇双层、取消选择X、隐藏离线、收藏置顶、矿机收藏、勾选框居中、GPU方块字体）；内置客户端 0.10.67。",
-  "docker_image":"rmos-server:0.15.0"
+  "assets":{"linux-amd64":{"url":"https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.2/rmos-server-linux-amd64","sha256":"3846db3cc0d41c08386d2d7f13e4ed5b4fdeefd564d94af3881564a22ffb2adc"}},
+  "version":"0.15.2","min_version":"0.11.0",
+  "notes":"用户服务器 0.15.2：矿机列表离线矿机第二层改断开连接图标；GPU方框风扇0显示0/无信息显示-；移除批量控制栏『取消选择』按钮；隐藏Windows客户端；内置客户端0.10.69（彻底禁用HiveOS hive-agent）。",
+  "docker_image":"rmos-server:0.15.2"
 }
