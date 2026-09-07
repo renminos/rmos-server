@@ -1,4 +1,12 @@
 {
-  "assets":{"linux-amd64":{"url":"https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.3/rmos-server-linux-amd64","sha256":"945961133585f1b0220760932443df277ab501808d09f8bce214f02a2b90833f"}},
-  "version":"0.15.3","min_version":"0.11.0","notes":"用户服务器 0.15.3：内置客户端 0.10.70——彻底禁用 HiveOS agent/miner 脚本(欠费不再拉停 miner)并安装 rmos/rmos start 等快捷指令；1025 矿机 20 分钟连续观察确认不再中断。","docker_image":"rmos-server:0.15.3"
+  "version": "0.15.4",
+  "docker_image": "rmos-server:0.15.4",
+  "notes": "用户服务器 0.15.4：修复矿机长时间开机后控制台命令无反应——服务器端旧连接被新注册取代时不再误删连接状态(命令投递黑洞根因)；写入加超时防挂死；内置客户端 0.10.72(心跳写失败自动重连、心跳协程泄漏修复、写超时)。",
+  "min_version": "0.11.0",
+  "assets": {
+    "linux-amd64": {
+      "sha256": "5555accf5f6f0212ef9aa99722a5b502b64cfcd050d90ceb9fa1234f9a5ac9f4",
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.4/rmos-server-linux-amd64"
+    }
+  }
 }
