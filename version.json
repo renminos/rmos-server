@@ -1,6 +1,4 @@
 {
-  "assets":{"linux-amd64":{"url":"https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.2/rmos-server-linux-amd64","sha256":"3846db3cc0d41c08386d2d7f13e4ed5b4fdeefd564d94af3881564a22ffb2adc"}},
-  "version":"0.15.2","min_version":"0.11.0",
-  "notes":"用户服务器 0.15.2：矿机列表离线矿机第二层改断开连接图标；GPU方框风扇0显示0/无信息显示-；移除批量控制栏『取消选择』按钮；隐藏Windows客户端；内置客户端0.10.69（彻底禁用HiveOS hive-agent）。",
-  "docker_image":"rmos-server:0.15.2"
+  "assets":{"linux-amd64":{"url":"https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.3/rmos-server-linux-amd64","sha256":"945961133585f1b0220760932443df277ab501808d09f8bce214f02a2b90833f"}},
+  "version":"0.15.3","min_version":"0.11.0","notes":"用户服务器 0.15.3：内置客户端 0.10.70——彻底禁用 HiveOS agent/miner 脚本(欠费不再拉停 miner)并安装 rmos/rmos start 等快捷指令；1025 矿机 20 分钟连续观察确认不再中断。","docker_image":"rmos-server:0.15.3"
 }
