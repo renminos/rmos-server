@@ -1,12 +1,12 @@
 {
-  "docker_image": "rmos-server:0.15.5-beta.3",
-  "min_version": "0.11.0",
+  "docker_image": "rmos-server:0.15.6",
+  "notes": "用户服务器 0.15.6：内置 Linux 矿机客户端 0.10.77——矿机启动/升级后向服务器查询最新飞行表+超频、连不上则 5 分钟后用缓存挖矿、启动飞行表前先应用超频；GPU 算力单位正确显示；系统信息增强(主机/多IP/MAC/主板/内存/具体Linux类型/多GPU驱动图标)；沿用主题色/面包屑 UI。",
   "assets": {
     "linux-amd64": {
-      "sha256": "08b52cdd38987fde4c370b4959bba89f5352e4d8e29075ba1fbf2e1f94b48f04",
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.5-beta.3/rmos-server-linux-amd64"
+      "sha256": "1f367cc430bfeafd098f15bf93088330d7fb1b3f193c631b1767c9271aca6148",
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.6/rmos-server-linux-amd64"
     }
   },
-  "notes": "用户服务器 0.15.5-beta.3：内置 Linux 矿机客户端更新至 0.10.74——修复飞行表选 lolminer 却误启动 hashforge(矿机包定位评分改为含目标二进制优先)、lolminer 按专有 CLI 传参、SSH 登录中文横幅不再报错。沿用 0.15.5-beta.2 的主题色/面包屑/UI 美化。",
-  "version": "0.15.5-beta.3"
+  "min_version": "0.11.0",
+  "version": "0.15.6"
 }
