@@ -1,12 +1,12 @@
 {
+  "docker_image": "rmos-server:0.15.9.1",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.9/rmos-server-linux-amd64",
-      "sha256": "b21493868c541e508b226f1c1fee35ef9f41cc2d0ccdf33a798f30d2345a6276"
+      "sha256": "2526d9dcfe867021ad812143087296268ff475785be032efa3c8c7e690010a50",
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.9.1/rmos-server-linux-amd64"
     }
   },
-  "min_version": "0.11.0",
-  "notes": "用户服务器 0.15.9：批量币种筛选换行、剪贴板直读填充、飞行表导出 JSON 双向兼容、整行展开详情、矿池真实地址、主机 IP/MAC 成对、驱动品牌图标、默认琥珀主题；内置客户端 0.10.82（飞行表切换卡死修复+功耗墙夹紧）。",
-  "version": "0.15.9",
-  "docker_image": "rmos-server:0.15.9"
+  "notes": "用户服务器 0.15.9.1：修复矿机注册成功但状态一直离线——服务器端 TCP keepalive + 心跳超时兜底扫描（>90s 无心跳强制离线）；内置客户端 0.10.83（矿机端 keepalive 自动重连）。",
+  "version": "0.15.9.1",
+  "min_version": "0.11.0"
 }
