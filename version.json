@@ -1,12 +1,12 @@
 {
   "assets": {
     "linux-amd64": {
-      "sha256": "2a89d2f95f3b19927b2b116df8b7b5fdbe65609aaddaeef619be577a872c9446",
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.8/rmos-server-linux-amd64"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.9/rmos-server-linux-amd64",
+      "sha256": "b21493868c541e508b226f1c1fee35ef9f41cc2d0ccdf33a798f30d2345a6276"
     }
   },
   "min_version": "0.11.0",
-  "notes": "用户服务器 0.15.8 正式版：飞行表管理增强（展开详情/钱包复制/删除级联）、算力单位按矿工上报显示、数据中心卡锁核修复、超频工具自动更新、矿场统计分色、主机信息增强（IP/MAC成对、主板、驱动品牌图标）、默认琥珀主题、内置客户端 0.10.81。",
-  "docker_image": "rmos-server:0.15.8",
-  "version": "0.15.8"
+  "notes": "用户服务器 0.15.9：批量币种筛选换行、剪贴板直读填充、飞行表导出 JSON 双向兼容、整行展开详情、矿池真实地址、主机 IP/MAC 成对、驱动品牌图标、默认琥珀主题；内置客户端 0.10.82（飞行表切换卡死修复+功耗墙夹紧）。",
+  "version": "0.15.9",
+  "docker_image": "rmos-server:0.15.9"
 }
