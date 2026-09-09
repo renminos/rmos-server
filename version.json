@@ -1,12 +1,12 @@
 {
-  "docker_image": "rmos-server:0.15.6",
-  "notes": "用户服务器 0.15.6：内置 Linux 矿机客户端 0.10.77——矿机启动/升级后向服务器查询最新飞行表+超频、连不上则 5 分钟后用缓存挖矿、启动飞行表前先应用超频；GPU 算力单位正确显示；系统信息增强(主机/多IP/MAC/主板/内存/具体Linux类型/多GPU驱动图标)；沿用主题色/面包屑 UI。",
   "assets": {
     "linux-amd64": {
-      "sha256": "1f367cc430bfeafd098f15bf93088330d7fb1b3f193c631b1767c9271aca6148",
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.6/rmos-server-linux-amd64"
+      "sha256": "2a89d2f95f3b19927b2b116df8b7b5fdbe65609aaddaeef619be577a872c9446",
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.8/rmos-server-linux-amd64"
     }
   },
   "min_version": "0.11.0",
-  "version": "0.15.6"
+  "notes": "用户服务器 0.15.8 正式版：飞行表管理增强（展开详情/钱包复制/删除级联）、算力单位按矿工上报显示、数据中心卡锁核修复、超频工具自动更新、矿场统计分色、主机信息增强（IP/MAC成对、主板、驱动品牌图标）、默认琥珀主题、内置客户端 0.10.81。",
+  "docker_image": "rmos-server:0.15.8",
+  "version": "0.15.8"
 }
