@@ -1,12 +1,12 @@
 {
-  "docker_image": "rmos-server:0.15.9.1",
+  "min_version": "0.11.0",
+  "version": "0.15.10.1",
+  "notes": "用户服务器 0.15.10.1：矿机每次启动上报 boot_id，重启后（增删显卡）控制台立即刷新真实 GPU 列表；运行中掉卡标记为丢失并清空过期实时读数；含此前局域网模式/端口自检/内网穿透等功能。",
+  "docker_image": "rmos-server:0.15.10.1",
   "assets": {
     "linux-amd64": {
-      "sha256": "2526d9dcfe867021ad812143087296268ff475785be032efa3c8c7e690010a50",
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.9.1/rmos-server-linux-amd64"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.10.1/rmos-server-linux-amd64",
+      "sha256": "42c1b5d0eef54365e77aa852e9ba4aff342820d75dbc31a9d2f45d3afb84eeaa"
     }
-  },
-  "notes": "用户服务器 0.15.9.1：修复矿机注册成功但状态一直离线——服务器端 TCP keepalive + 心跳超时兜底扫描（>90s 无心跳强制离线）；内置客户端 0.10.83（矿机端 keepalive 自动重连）。",
-  "version": "0.15.9.1",
-  "min_version": "0.11.0"
+  }
 }
