@@ -1,12 +1,12 @@
 {
   "min_version": "0.11.0",
-  "version": "0.15.10.1",
-  "notes": "用户服务器 0.15.10.1：矿机每次启动上报 boot_id，重启后（增删显卡）控制台立即刷新真实 GPU 列表；运行中掉卡标记为丢失并清空过期实时读数；含此前局域网模式/端口自检/内网穿透等功能。",
-  "docker_image": "rmos-server:0.15.10.1",
+  "version": "0.15.10.2",
+  "notes": "鐢ㄦ埛鏈嶅姟鍣?0.15.10.2锛氬姞鍥?GPU 纭欢蹇収 鈥?鐭挎満閲嶅惎鍚庤嫢棣栨蹇冭烦灏氭湭璇诲埌鏄惧崱锛堥┍鍔ㄦ湭灏辩华锛夛紝涓嶅啀鎶婂凡璁板綍鏈哄瀷/棰勬湡鍗℃暟娓呴浂锛岀瓑绗竴涓湡姝ｈ鍒板崱鐨勫績璺冲啀浣滀负鏈鍚姩鐨勬潈濞佸揩鐓э紱閰嶅悎 0.10.85 瀹㈡埛绔殑 boot_id 鏈哄埗锛岄噸鍚鍒犲崱鍗虫椂鍒锋柊銆佽繍琛屼腑鎺夊崱鏍囪涓轰涪澶便€?,
+  "docker_image": "rmos-server:0.15.10.2",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.10.1/rmos-server-linux-amd64",
-      "sha256": "42c1b5d0eef54365e77aa852e9ba4aff342820d75dbc31a9d2f45d3afb84eeaa"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.10.2/rmos-server-linux-amd64",
+      "sha256": "dbac0c00f09d9070458dd0d46938c9f4bd30d691b155622c201c06a4a8c7e422"
     }
   }
 }
