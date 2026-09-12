@@ -1,12 +1,12 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.0.5",
-  "notes": "用户服务器 0.16.0.5：修好飞行表编辑器“只改钱包就报请填写矿池地址”的保存失败（原版兼容格式丢掉了 pool_urls）；矿机列表的显卡显示回到原样（不再写 GPU 丢失、不显示 PCIE 编号）；矿机详情页按设定数量补齐槽位，并把「GPU 丢失」写在型号列的显卡品牌之后。",
-  "docker_image": "rmos-server:0.16.0.5",
+  "version": "0.16.0.6",
+  "notes": "用户服务器 0.16.0.6：①修好飞行表编辑器“只改钱包就报请填写矿池地址”的保存失败（原版兼容格式丢掉了 pool_urls）；②矿机列表的显卡显示回到原样（不再写 GPU 丢失、不显示 PCIE 编号），详情页按设定数量补齐槽位并把「GPU 丢失」写在型号列的显卡品牌之后；③修好服务器发出去的 install.sh 一直是旧版的问题（内嵌脚本未同步，导致主机名防重装抢占等修复没到矿机）。",
+  "docker_image": "rmos-server:0.16.0.6",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.0.5/rmos-server-linux-amd64",
-      "sha256": "2ede8d43887963f4309b0352b0404bff2378b7b30e9dd752692198fc78136325"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.0.6/rmos-server-linux-amd64",
+      "sha256": "4f897d56dc1a9226c768c467056efade78eda393f95464eb7b031e1b6f559f38"
     }
   }
 }
