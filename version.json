@@ -1,12 +1,12 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.0.2",
-  "notes": "用户服务器 0.16.0.2：修复「新设备凭主机名抢占已有矿机记录」—— 重装系统的矿机注册时不再因为主机名相同（HiveOS 镜像默认主机名就是 HiveOS）而顶掉另一台矿机的记录；已绑定设备的记录不再被改绑，控制台手工预建的占位机仍可被首台设备认领。install.sh 遇到通用主机名时改用唯一占位名。另含 0.16.0.1 的 security_event 告警与 0.16.0.0 的显卡数量语义修正。",
-  "docker_image": "rmos-server:0.16.0.2",
+  "version": "0.16.0.3",
+  "notes": "用户服务器 0.16.0.3：修复换卡后控制台仍显示旧显卡信息 —— 未安装/未加载 NVIDIA 驱动时客户端改为按 PCI 枚举上报真实卡槽（标注「无驱动」），服务端不再把空样本当作「保持原样」而留着过期读数，且只有同一块卡才复用旧的 VBIOS/显存等静态字段。",
+  "docker_image": "rmos-server:0.16.0.3",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.0.2/rmos-server-linux-amd64",
-      "sha256": "bc0c8dad8307022bcc1abc9187eb96eeb706ed9c8eff3592f30ccb4ea93177f7"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.0.3/rmos-server-linux-amd64",
+      "sha256": "ebbc8746fb79d9359764ddaefd4445154fbdafa57b6975166566869fc82c20a1"
     }
   }
 }
