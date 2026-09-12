@@ -1,12 +1,12 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.0.3",
-  "notes": "用户服务器 0.16.0.3：修复换卡后控制台仍显示旧显卡信息 —— 未安装/未加载 NVIDIA 驱动时客户端改为按 PCI 枚举上报真实卡槽（标注「无驱动」），服务端不再把空样本当作「保持原样」而留着过期读数，且只有同一块卡才复用旧的 VBIOS/显存等静态字段。",
-  "docker_image": "rmos-server:0.16.0.3",
+  "version": "0.16.0.4",
+  "notes": "用户服务器 0.16.0.4：显卡改为按 PCIE 槽位识别 —— 拔卡/换卡后不再张冠李戴；丢失的卡在原槽位标「GPU 丢失」（灰色/红色），不再悄悄消失或变成重复记录；列表按 PCI 地址排序，卡号不再乱跳。",
+  "docker_image": "rmos-server:0.16.0.4",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.0.3/rmos-server-linux-amd64",
-      "sha256": "ebbc8746fb79d9359764ddaefd4445154fbdafa57b6975166566869fc82c20a1"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.0.4/rmos-server-linux-amd64",
+      "sha256": "d855bfca4781166b5bc67b144946d3c48addd30c2e4d5942c3a76cafb23f7395"
     }
   }
 }
