@@ -1,12 +1,12 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.0.4",
-  "notes": "用户服务器 0.16.0.4：显卡改为按 PCIE 槽位识别 —— 拔卡/换卡后不再张冠李戴；丢失的卡在原槽位标「GPU 丢失」（灰色/红色），不再悄悄消失或变成重复记录；列表按 PCI 地址排序，卡号不再乱跳。",
-  "docker_image": "rmos-server:0.16.0.4",
+  "version": "0.16.0.5",
+  "notes": "用户服务器 0.16.0.5：修好飞行表编辑器“只改钱包就报请填写矿池地址”的保存失败（原版兼容格式丢掉了 pool_urls）；矿机列表的显卡显示回到原样（不再写 GPU 丢失、不显示 PCIE 编号）；矿机详情页按设定数量补齐槽位，并把「GPU 丢失」写在型号列的显卡品牌之后。",
+  "docker_image": "rmos-server:0.16.0.5",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.0.4/rmos-server-linux-amd64",
-      "sha256": "d855bfca4781166b5bc67b144946d3c48addd30c2e4d5942c3a76cafb23f7395"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.0.5/rmos-server-linux-amd64",
+      "sha256": "2ede8d43887963f4309b0352b0404bff2378b7b30e9dd752692198fc78136325"
     }
   }
 }
