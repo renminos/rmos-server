@@ -1,12 +1,12 @@
 {
   "min_version": "0.11.0",
-  "version": "0.15.10.2",
-  "notes": "用户服务器 0.15.10.2：加固 GPU 硬件快照 — 矿机重启后若首次心跳尚未读到显卡（驱动未就绪），不再把已记录机型/预期卡数清零，等第一个真正读到卡的心跳再作为本次启动的权威快照；配合 0.10.85 客户端的 boot_id 机制，重启增删卡即时刷新、运行中掉卡标记为丢失。",
-  "docker_image": "rmos-server:0.15.10.2",
+  "version": "0.16.0.1",
+  "notes": "用户服务器 0.16.0.1：新增 security_event 处理 —— 矿机上报「有非 RMOS 启动的进程占用显卡」时抛出一条 critical 运行告警（同矿机同代码去重更新），接管干净后自动消除；配合客户端 0.11.2 的显卡自动接管。另含 0.16.0.0 的 GPU 数量语义修正（掉卡保持原卡位数、缺失显卡红框）。",
+  "docker_image": "rmos-server:0.16.0.1",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.15.10.2/rmos-server-linux-amd64",
-      "sha256": "dbac0c00f09d9070458dd0d46938c9f4bd30d691b155622c201c06a4a8c7e422"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.0.1/rmos-server-linux-amd64",
+      "sha256": "c18d8c7242814cf42c2532bdfda241def3827c85a0656bcbe1d28a320986966b"
     }
   }
 }
