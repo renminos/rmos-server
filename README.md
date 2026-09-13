@@ -142,6 +142,14 @@ Windows 版要点：
 - Telgram：https://t.me/+ezlR-xfTzS83MjQ1
 - 使用中出现问题，请在群组中@群主反馈
 
+## 示例图片
+
+<img width="1710" height="621" alt="43683ae32ea1c9587b51e414e61ae600" src="https://github.com/user-attachments/assets/4c5ee7c5-9e26-4004-8168-31953f419011" />
+<img width="1503" height="933" alt="image" src="https://github.com/user-attachments/assets/39429c6a-6c3d-4068-a925-d150eb604b6e" />
+
+
+
 ## 如果您觉得好用，欢迎打赏支持
 - BSC USDT：0xA003BFC9AB6CDC7D7fE87d0bed4135Ad873b7805
 - ERC USDT: 0xA003BFC9AB6CDC7D7fE87d0bed4135Ad873b7805
+
