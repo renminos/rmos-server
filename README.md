@@ -1,7 +1,9 @@
 # RMOS 用户服务器
 
 RMOS 用户服务器是一套可独立部署的矿场管理系统，适合矿场主在自己的服务器、NAS、云主机或 Windows 电脑上运行，用于统一管理矿机。网页端即可完成矿机接入、飞行表、超频、插件、用户计费与备份恢复等日常运维。
-注意AMD显卡用户暂时不要使用，未对AMD显卡进行适配，可能存在问题！
+**注意AMD显卡用户暂时不要使用，未对AMD显卡进行适配，可能存在问题！**
+
+**本项目完全由AI完成，经过长时间迭代自用，但不能保证没有bug**
 
 **当前版本**：用户服务器 `0.16.1.1`（Linux / Docker / Windows） · Linux 矿机客户端 `0.11.4`。
 下载地址：<https://github.com/renminos/rmos-server/releases> · 矿机客户端：<https://github.com/renminos/rmos-client/releases>
@@ -134,3 +136,12 @@ Windows 版要点：
 - 定期导出加密备份并妥善保管备份密码。
 - 生产环境使用高强度随机密码，并建议开启两步验证。
 - 矿机侧建议定期运行 `release/security/` 里的安全扫描脚本，排查可疑矿工进程与后门账号。
+
+## 联系方式
+- Discord: https://discord.gg/6TyMkDm796
+- Telgram：https://t.me/+ezlR-xfTzS83MjQ1
+- 使用中出现问题，请在群组中@群主反馈
+
+## 如果您觉得好用，欢迎打赏支持
+- BSC USDT：0xA003BFC9AB6CDC7D7fE87d0bed4135Ad873b7805
+- ERC USDT: 0xA003BFC9AB6CDC7D7fE87d0bed4135Ad873b7805
