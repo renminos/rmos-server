@@ -1,20 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.1.0",
-  "notes": "用户服务器 0.16.1.0：新增 Windows 版（GUI 窗口 + 托盘，可设开机自启，数据存 C:\\ProgramData\\RMOS\\userserver，一台设备只跑一个 RMOS）；飞行表编辑器“添加挖矿软件/收藏/全局”排在同一行；导出飞行表 JSON 不再包含 global（兼容 HiveOS，默认非全局）；首页总功率与矿场卡片在线/故障/离线/总数、收藏主题色、飞行表全局可见可用；内嵌 install.sh 与服务端一致。配套客户端 0.11.4。",
-  "docker_image": "rmos-server:0.16.1.0",
+  "version": "0.16.1.1",
+  "notes": "用户服务器 0.16.1.1：Windows 版改为单程序交付（rmos-server.exe = 窗口 + 服务端同一文件，zip 解压后只有 rmos-server 文件夹），窗口支持在线更新且启动器与服务端一起升级；数据固定存 C:\\ProgramData\\RMOS\\userserver（旧便携 data 自动迁移），一台设备只跑一个 RMOS；窗口标题栏/任务栏/托盘同一图标，无黑色命令行窗口。飞行表编辑器“添加挖矿软件/收藏/全局”同一行；导出飞行表 JSON 不含 global（兼容 HiveOS）。",
+  "docker_image": "rmos-server:0.16.1.1",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.1.0/rmos-server-linux-amd64",
-      "sha256": "85e5684c8308f336068bab5dce69097a422da21efe9c42300be5db55e1cc3ff9"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.1.1/rmos-server-linux-amd64",
+      "sha256": "807c84d2e9dde6d315fbc55f4d22e8856127c9aea21d24dd3bbda7eea0b03c1e"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.1.0/rmos-userserver-windows-amd64.exe",
-      "sha256": "cd22d15d1a06e7fdd0d65f0f57f190b237e60089cebc38aa6794d43ac9792ba5"
-    },
-    "windows-amd64-gui": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.1.0/rmos-userserver-gui-windows-amd64.exe",
-      "sha256": "bd48511cb8483c2e2071ac7e0e6d2c947380fbcec96b752ace4c2935147186d1"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.1.1/rmos-server.exe",
+      "sha256": "60890250320c24bfebfa9443d4a2491a02514ce44842e115401704c2f50becb8"
     }
   }
 }
