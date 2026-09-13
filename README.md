@@ -4,7 +4,7 @@ RMOS 用户服务器是一套可独立部署的矿场管理系统，适合矿场
 
 **自用永久免费！**
 **注意AMD显卡用户暂时不要使用，未对AMD显卡进行适配，可能存在问题！**
-**本项目完全由AI完成，经过长时间迭代自用，但不能保证完全没有bug。**
+**本项目完全由AI完成，经过长时间迭代自用，功能已经趋于稳定，但不能保证完全没有bug。**
 
 **当前版本**：用户服务器 `0.16.1.1`（Linux / Docker / Windows） · Linux 矿机客户端 `0.11.4`。
 下载地址：<https://github.com/renminos/rmos-server/releases> · 矿机客户端：<https://github.com/renminos/rmos-client/releases>
