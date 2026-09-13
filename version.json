@@ -1,12 +1,20 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.0.6",
-  "notes": "用户服务器 0.16.0.6：①修好飞行表编辑器“只改钱包就报请填写矿池地址”的保存失败（原版兼容格式丢掉了 pool_urls）；②矿机列表的显卡显示回到原样（不再写 GPU 丢失、不显示 PCIE 编号），详情页按设定数量补齐槽位并把「GPU 丢失」写在型号列的显卡品牌之后；③修好服务器发出去的 install.sh 一直是旧版的问题（内嵌脚本未同步，导致主机名防重装抢占等修复没到矿机）。",
-  "docker_image": "rmos-server:0.16.0.6",
+  "version": "0.16.1.0",
+  "notes": "用户服务器 0.16.1.0：新增 Windows 版（GUI 窗口 + 托盘，可设开机自启，数据存 C:\\ProgramData\\RMOS\\userserver，一台设备只跑一个 RMOS）；飞行表编辑器“添加挖矿软件/收藏/全局”排在同一行；导出飞行表 JSON 不再包含 global（兼容 HiveOS，默认非全局）；首页总功率与矿场卡片在线/故障/离线/总数、收藏主题色、飞行表全局可见可用；内嵌 install.sh 与服务端一致。配套客户端 0.11.4。",
+  "docker_image": "rmos-server:0.16.1.0",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.0.6/rmos-server-linux-amd64",
-      "sha256": "4f897d56dc1a9226c768c467056efade78eda393f95464eb7b031e1b6f559f38"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.1.0/rmos-server-linux-amd64",
+      "sha256": "85e5684c8308f336068bab5dce69097a422da21efe9c42300be5db55e1cc3ff9"
+    },
+    "windows-amd64": {
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.1.0/rmos-userserver-windows-amd64.exe",
+      "sha256": "cd22d15d1a06e7fdd0d65f0f57f190b237e60089cebc38aa6794d43ac9792ba5"
+    },
+    "windows-amd64-gui": {
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.1.0/rmos-userserver-gui-windows-amd64.exe",
+      "sha256": "bd48511cb8483c2e2071ac7e0e6d2c947380fbcec96b752ace4c2935147186d1"
     }
   }
 }
