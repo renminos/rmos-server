@@ -24,7 +24,7 @@ RMOS 用户服务器是一套可独立部署的矿场管理系统，适合矿场
 
 ## 部署要求
 
-- **Linux / NAS**：Ubuntu 20.04 / 22.04 / 24.04（x86_64），或支持 Docker Compose 的主机 / NAS。
+- **Linux / NAS**：Ubuntu 20.04 / 22.04 / 24.04（x86_64），或支持 Docker Compose 的主机 / NAS / 路由器。
 - **Windows** exe版：Windows 10 / 11 x64 或 Server 2016+；需要 Microsoft Edge WebView2 运行时（Win10/11 一般已预装）。windows设备也可以安装docker来运行docker版本。
 - 可访问外网（初始化时需自动完成平台注册，连接不上平台将无法继续）。
 - 放通端口：`18808`（网页控制台）、`19808`（平台通信）、`19809`（矿机通信）、`21080-21089`（客户端与工具下载，Docker/Linux 版使用）。
