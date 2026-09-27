@@ -1,16 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.8.0",
-  "notes": "用户服务器 0.16.8.0（正式版）——本版只改\"下载来源\"与 HA 快照节奏，不再从平台服务器取任何二进制：- 客户端 / octool 发布包一律从 GitHub（renminos/rmos-client）下载；GitHub 失败时**不再回退平台服务器**——那个回退是这次平台带宽被占满的元凶。- 下载中心的工具（Xray / VPN 模块 / nvflash / 矿机插件）改为从 renminos/rmos-tools 的 latest release 取；本地已存在且 sha256 一致就跳过，不再每轮重下。- 平台侧只同步\"目录\"（矿机软件清单、下载中心清单，几十 KB JSON），所有二进制走 GitHub。- HA：主节点快照改为\"内容有变化才推 + 最小间隔 2 分钟\"（原先每 5 秒推 1 次 1 MB 全量，约 1.3 GB/天），推送失败后退避 2 分钟。- 现场数据：修复前总服务器 40 小时发出 8.57 GB、只收 649 MB；修复后实测 5 分钟内 0 次 HA 快照重传。配套矿机客户端 0.11.30；Windows 版与 Linux 版功能一致（单程序：窗口 + 服务端同一文件）。",
-  "docker_image": "rmos-server:0.16.8.0",
+  "version": "0.16.8.1",
+  "notes": "用户服务器 0.16.8.1（正式版）——修复\"升级客户端提示 release not found\"：- 根因：发布记录的 ID 每一轮同步都会被换掉。`AddRelease` 无条件用计数器覆盖调用方传入的 ID，而 upsertRelease（每 30 分钟的 GitHub 同步、每次重启、2 小时内容同步都会走）本是\"保留旧 ID → 重建\"，于是控制台页面加载后只要跑过一轮同步，手里的 ID 就全部失效；点升级即报 release not found（192.168.64.3 实测 next_release_id 已达 32362，记录被重建三万余次）。- 修复：AddRelease 保留显式 ID，并保证分配器始终大于已用 ID（ID<=0 仍自动分配）。- 控制台：打开\"客户端升级\"抽屉时重新拉取发布列表；若仍遇到 release not found，会按 组件/平台/版本 自动重新解析并重试一次，而不是直接报错；批量升级失败也会给出提示（此前为未处理异常）。- 现场验证：在 192.168.64.3 部署后触发完整同步轮，20 条发布记录 ID 与 next_release_id 全部保持不变。配套矿机客户端 0.11.30；Windows 版与 Linux 版功能一致（单程序：窗口 + 服务端同一文件）。",
+  "docker_image": "rmos-server:0.16.8.1",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.8.0/rmos-server-linux-amd64",
-      "sha256": "d7529e02d0f7c94320d63e744ec73afabb23b2ed08b5d02a50c33bce8e0e3d68"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.8.1/rmos-server-linux-amd64",
+      "sha256": "e5bdd7dd96d22a93801370fa2373f96640e5a2d778e4d0c5eaa8e133bbb8ecb5"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.8.0/rmos-server.exe",
-      "sha256": "cf17d899353f4cd33abca75b45cf5cb7770138e2dccf0b238b66301322a0d3f0"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.8.1/rmos-server.exe",
+      "sha256": "c9170af558c06a12572e72096a3021b24650c80791dceec6d1000e98f5d032f5"
     }
   }
 }
