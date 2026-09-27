@@ -1,16 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.3.0",
-  "notes": "用户服务器 0.16.3.0（正式版）：① 修复 Store 快照并发读写 map 导致进程崩溃的根因（1 号总服务器曾因它停机 3 天，用户服务器同样受影响）；② vBIOS 页签：本机 / vBIOS 库 两个按钮切换，读取显卡 vBIOS（nvflash）、按账号建库（配额 20 个文件 / 200 MB、按 sha256 去重）、改名备注、下载、上传（含 AMD/NVIDIA 卡类型）；③ nvflash 由服务器自动镜像（来源 github.com/renminos/rmos-tools），矿机没装就从自己的用户服务器取，老的 HiveOS 自带版本读不到新卡时自动换用服务器版本；④ 控制台：飞行表列表「全局 / 本机使用中」独立成列 + 全局表显示「其他矿场已应用 N 台矿机」；「全部」超频改成 HiveOS 风格多值表单（一值通用 / N 值逐卡，空格分隔）；份额列数字与阈值配色；2FA 启用时显示可扫码二维码；总服务器登录页极简；⑤ 修复飞行表编辑面板被行高锁住导致界面错乱、飞行表展开时行高跳动；⑥ vBIOS 列表新增显存列，品牌列复用既有识别（PCI 子系统厂商）并补全 Palit / PNY 等厂商；⑦ HA 发现文件发布编码修复（GitHub Contents API 需再 base64 编码一次）。配套矿机客户端 0.11.20 ~ 0.11.22；Windows 版与 Linux 版功能一致（单程序：窗口 + 服务端同一文件）。",
-  "docker_image": "rmos-server:0.16.3.0",
+  "version": "0.16.8.0",
+  "notes": "用户服务器 0.16.8.0（正式版）——本版只改\"下载来源\"与 HA 快照节奏，不再从平台服务器取任何二进制：- 客户端 / octool 发布包一律从 GitHub（renminos/rmos-client）下载；GitHub 失败时**不再回退平台服务器**——那个回退是这次平台带宽被占满的元凶。- 下载中心的工具（Xray / VPN 模块 / nvflash / 矿机插件）改为从 renminos/rmos-tools 的 latest release 取；本地已存在且 sha256 一致就跳过，不再每轮重下。- 平台侧只同步\"目录\"（矿机软件清单、下载中心清单，几十 KB JSON），所有二进制走 GitHub。- HA：主节点快照改为\"内容有变化才推 + 最小间隔 2 分钟\"（原先每 5 秒推 1 次 1 MB 全量，约 1.3 GB/天），推送失败后退避 2 分钟。- 现场数据：修复前总服务器 40 小时发出 8.57 GB、只收 649 MB；修复后实测 5 分钟内 0 次 HA 快照重传。配套矿机客户端 0.11.30；Windows 版与 Linux 版功能一致（单程序：窗口 + 服务端同一文件）。",
+  "docker_image": "rmos-server:0.16.8.0",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.3.0/rmos-server-linux-amd64",
-      "sha256": "d9e5a0b8321988bf9ee8f0fd9069f73929f6ed78010e8a79b64d8434d26996fd"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.8.0/rmos-server-linux-amd64",
+      "sha256": "d7529e02d0f7c94320d63e744ec73afabb23b2ed08b5d02a50c33bce8e0e3d68"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.3.0/rmos-server.exe",
-      "sha256": "8bb5135e4c3e2ab4f057575c5ea18bb04e2e7c791e2875c367194dbcafa42f4d"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.8.0/rmos-server.exe",
+      "sha256": "cf17d899353f4cd33abca75b45cf5cb7770138e2dccf0b238b66301322a0d3f0"
     }
   }
 }
