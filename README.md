@@ -38,20 +38,22 @@ RMOS 用户服务器是一套可独立部署的矿场管理系统，适合矿场
 在服务器上执行一条命令：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/renminos/rmos-server/main/install.sh | sudo bash
+curl -fsSL https://github.com/renminos/rmos-tools/releases/latest/download/rmos-server-install.sh | sudo bash
 ```
 
-安装完成后打开 `http://服务器IP:18808`，按引导完成首次初始化。
-
-### Docker 部署
+安装完成后打开 `http://服务器IP:1880### Docker 部署
 
 ```bash
-# 下载并进入 Docker 发布目录后，复制环境变量并启动
+# 下载 Docker 发布包（群晖等 NAS 与普通 Docker 主机通用）
+curl -fLO https://github.com/renminos/rmos-server/releases/latest/download/rmos-server-docker.tar.gz
+tar -xzf rmos-server-docker.tar.gz && cd docker
 cp .env.example .env
 docker compose up -d --build
 ```
 
-数据保存在 `docker/data/`，容器会随主机重启自动恢复运行。
+数据保存在 `docker/data/`，容器会随主机重启自动恢复运行；控制台「服务器版本」里的一键升级会把新版本写进该目录，重建容器也不会退回旧版。
+
+器会随主机重启自动恢复运行。
 
 ### Windows 单程序部署
 
