@@ -1,16 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.8.1",
-  "notes": "用户服务器 0.16.8.1（正式版）——修复\"升级客户端提示 release not found\"：- 根因：发布记录的 ID 每一轮同步都会被换掉。`AddRelease` 无条件用计数器覆盖调用方传入的 ID，而 upsertRelease（每 30 分钟的 GitHub 同步、每次重启、2 小时内容同步都会走）本是\"保留旧 ID → 重建\"，于是控制台页面加载后只要跑过一轮同步，手里的 ID 就全部失效；点升级即报 release not found（192.168.64.3 实测 next_release_id 已达 32362，记录被重建三万余次）。- 修复：AddRelease 保留显式 ID，并保证分配器始终大于已用 ID（ID<=0 仍自动分配）。- 控制台：打开\"客户端升级\"抽屉时重新拉取发布列表；若仍遇到 release not found，会按 组件/平台/版本 自动重新解析并重试一次，而不是直接报错；批量升级失败也会给出提示（此前为未处理异常）。- 现场验证：在 192.168.64.3 部署后触发完整同步轮，20 条发布记录 ID 与 next_release_id 全部保持不变。配套矿机客户端 0.11.30；Windows 版与 Linux 版功能一致（单程序：窗口 + 服务端同一文件）。",
-  "docker_image": "rmos-server:0.16.8.1",
+  "version": "0.16.9.0",
+  "notes": "用户服务器 0.16.9.0（正式版）。本版集中修复四类问题：远程网页终端、平台设置、矿机界面、Windows 版。**一、远程网页终端（新功能）**- 矿机「在线 SSH 终端」面板右上角新增按钮，可生成一个**只对这一台矿机生效**的临时网页终端链接，交给第三方协助排查。- 链接自带一次性令牌，**与控制台登录令牌完全隔离**，拿到链接也无法登录控制台；只能操作这一台矿机，不能改配置、不能下发飞行表。- **10 分钟无操作即失效并断开**（即使对方页面一直开着），可随时作废；生成、开启、关闭均写入审计日志。- 链接地址取自「平台设置 → 公网域名 / IP」，因此外部的人也能打开；穿透用户的链接自动使用 https（网关为 Let's Encrypt 泛域名证书）。未配置公网地址时会明确提示，不再给出内网地址。**二、平台设置**- 「局域网模式」「极简登录页面」改为**标准勾选框**，点「保存设置」后生效。- 修复**勾选框保存后刷新又变回未勾选**的问题：普通服务器的设置接口原先按字段逐条手写复制，新增设置项若忘记登记就会被静默丢弃；现改为按字段清单统一复制，此类问题不会再出现。- 新增「极简登录页面」：开启后登录页只显示登录面板，隐藏左侧品牌与说明文案（总服务器本就默认极简，此项对它同样生效）。**三、矿机界面**- 「当前飞行表」一行在矿工名称后显示**运行版本号**（如 `peakminer 2.17.3`）。版本优先取矿机包自己上报的值，取不到时回退为该飞行表的包版本标签。- 总算力、份额两栏收窄，空间让给右侧 GPU 区；GPU 小方块改为固定宽度、靠左排列，第二层显示温度与风扇（原先的 PCIE 序号已移除）。- 修复矿机状态显示：此前前端除了看服务端的在线状态，还会用**浏览器本地时钟**与最后一次上报时间自行判断，只要两者时间相差超过 75 秒，就会把在线的矿机一直显示为离线（份额与操作却正常）。现在只认服务端的权威状态。**四、Windows 版用户服务器**- 「平台管理 → 平台概况 → 服务器版本」的部署方式正确显示为「Windows 程序」，此前误显示为「Ubuntu 直接部署」。- 包内 README 与版本说明的版本号改为构建时自动写入，不再停留在旧版本。- Windows 版与 Linux 版功能一致（单程序：窗口 + 服务端同一个文件）。**五、上一版包含且本版仍生效的修复**- 升级矿机客户端时提示 `release not found`：发布记录 ID 不再被同步覆盖。- 矿机客户端与工具下载改走 GitHub，不再从平台服务器下载。**部署说明**- 一键安装脚本与 Docker 包地址不变，可直接覆盖升级；升级前建议备份 `data/rmos.json`。- Windows 版与 Linux 版为同一版本号，功能一致。",
+  "docker_image": "rmos-server:0.16.9.0",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.8.1/rmos-server-linux-amd64",
-      "sha256": "e5bdd7dd96d22a93801370fa2373f96640e5a2d778e4d0c5eaa8e133bbb8ecb5"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.0/rmos-server-linux-amd64",
+      "sha256": "76f0ba2107ad34099b97452dc43ad996c3980936874989d6fdceff0c6e316727"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.8.1/rmos-server.exe",
-      "sha256": "c9170af558c06a12572e72096a3021b24650c80791dceec6d1000e98f5d032f5"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.0/rmos-server.exe",
+      "sha256": "1f55e01af9a801ac1d7c57340592aee53e26820113e60b543e1ea37c146298ae"
     }
   }
 }
