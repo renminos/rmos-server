@@ -144,7 +144,8 @@ linux类矿机卸载客户端指令：rmos --uninstall，卸载后会恢复原�
 ## 示例图片
 
 <img width="1710" height="621" alt="43683ae32ea1c9587b51e414e61ae600" src="https://github.com/user-attachments/assets/4c5ee7c5-9e26-4004-8168-31953f419011" />
-<img width="1503" height="933" alt="image" src="https://github.com/user-attachments/assets/39429c6a-6c3d-4068-a925-d150eb604b6e" />
+<img width="1557" height="976" alt="1375f74b2d878a00edb14a51358e7ce0" src="https://github.com/user-attachments/assets/24a0227d-99c1-4644-81b9-8babeefa92b1" />
+
 
 ## 联系方式
 - Discord: https://discord.gg/6TyMkDm796
