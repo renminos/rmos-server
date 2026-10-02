@@ -1,16 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.9.0",
-  "notes": "- 新增远程网页终端：矿机 SSH 面板右上角可生成临时链接，交给第三方协助排查。链接只对这一台矿机生效、10 分钟无操作即失效并断开、可随时作废，令牌与控制台登录令牌隔离，关键操作记入审计日志。- 链接地址取自「平台设置 → 公网域名 / IP」，外部可访问；穿透用户自动使用 https；未配置公网地址时给出提示。- 平台设置：「局域网模式」「极简登录页面」改为勾选框。修复勾选框保存后刷新又变回未勾选的问题。- 矿机界面：「当前飞行表」一行显示矿工运行版本号（如 peakminer 2.17.3）。- 矿机界面：总算力、份额两栏收窄，GPU 小方块固定宽度靠左排列，第二层显示温度与风扇。- 修复矿机被误显示为离线：前端不再用浏览器本地时钟判断在线状态，只认服务端的权威状态。- 修复用户服务器的部署方式显示为「Ubuntu 直接部署」，现在正确显示「Windows 程序」。",
-  "docker_image": "rmos-server:0.16.9.0",
+  "version": "0.16.9.1-beta3",
+  "notes": "- 修复「检查更新」失败：修复了部分网络环境下访问 GitHub 的版本清单地址被中途断开（提示 wsarecv / 连接被强制关闭）导致检查更新一直失败的问题。- 现在会依次尝试多个清单地址（含 CDN 镜像），并在直连失败时改用 IPv4 重试；任一地址可用即可正常检查更新。- 修复矿机在线升级在无公网 IP 环境下无反应：客户端会按顺序逐个尝试服务器下发的所有下载地址，而不是只用第一个，GitHub 不可达时会自动回退到本服务器下载。",
+  "docker_image": "rmos-server:0.16.9.1-beta3",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.0/rmos-server-linux-amd64",
-      "sha256": "76f0ba2107ad34099b97452dc43ad996c3980936874989d6fdceff0c6e316727"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.1-beta3/rmos-server-linux-amd64",
+      "sha256": "8008d1118642bf064d5e644a65aa07f11aae94e5d4e92bda545423aa114deca5"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.0/rmos-server.exe",
-      "sha256": "1f55e01af9a801ac1d7c57340592aee53e26820113e60b543e1ea37c146298ae"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.1-beta3/rmos-server.exe",
+      "sha256": "442703e1374902a7e75842d42c6d00adf68a0fd15c5997c2ede2775ba7d5b20e"
     }
   }
 }
