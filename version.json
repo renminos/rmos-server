@@ -1,16 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.9.1",
-  "notes": "- 修复 Windows 版「已下载新版本」误报与自动降级：暂存的更新现在会**校验版本号**，只有比当前版本更新的才会显示并应用；更旧或相同的暂存包会被自动清除，不再反复提示、也不会在重启时把程序换成旧版本。- 修复 Windows 版点「启动服务器」报 `打开日志失败: ... Access is denied.`：此前以管理员身份运行过一次后，日志文件会带上普通用户无法写入的权限，导致之后每次正常启动都失败。现在遇到该情况会自动改用新的日志文件继续启动，无需提权。- 修复 Windows 版「打开服务器日志」在日志文件无读取权限时报错：改为打开可读取的最新日志，若确实不可读则打开数据目录并说明原因。- 修复版本号比较不识别预发布后缀：`0.16.9.1-beta3` 现在正确地小于 `0.16.9.1`，因此测试版不会再被\"升级\"成更旧的正式版。",
-  "docker_image": "rmos-server:0.16.9.1",
+  "version": "0.16.9.0",
+  "notes": "- 新增远程网页终端：矿机 SSH 面板右上角可生成临时链接，交给第三方协助排查。链接只对这一台矿机生效、10 分钟无操作即失效并断开、可随时作废，令牌与控制台登录令牌隔离，关键操作记入审计日志。- 链接地址取自「平台设置 → 公网域名 / IP」，外部可访问；穿透用户自动使用 https；未配置公网地址时给出提示。- 平台设置：「局域网模式」「极简登录页面」改为勾选框。修复勾选框保存后刷新又变回未勾选的问题。- 矿机界面：「当前飞行表」一行显示矿工运行版本号（如 peakminer 2.17.3）。- 矿机界面：总算力、份额两栏收窄，GPU 小方块固定宽度靠左排列，第二层显示温度与风扇。- 修复矿机被误显示为离线：前端不再用浏览器本地时钟判断在线状态，只认服务端的权威状态。- 修复用户服务器的部署方式显示为「Ubuntu 直接部署」，现在正确显示「Windows 程序」。",
+  "docker_image": "rmos-server:0.16.9.0",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.1/rmos-server-linux-amd64",
-      "sha256": "219556501f4fe8b034a3039e16b3da085002eec2c4eca3b5698e4960dbc7fbc7"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.0/rmos-server-linux-amd64",
+      "sha256": "76f0ba2107ad34099b97452dc43ad996c3980936874989d6fdceff0c6e316727"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.1/rmos-server.exe",
-      "sha256": "db7a316043904c346437ca3758a93bf00fecfbb83e1fd1cd029a35fd0d2b6d46"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.0/rmos-server.exe",
+      "sha256": "1f55e01af9a801ac1d7c57340592aee53e26820113e60b543e1ea37c146298ae"
     }
   }
 }
