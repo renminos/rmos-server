@@ -1,16 +1,16 @@
 {
-  "min_version": "0.11.0",
-  "version": "0.16.9.0",
-  "notes": "- 新增远程网页终端：矿机 SSH 面板右上角可生成临时链接，交给第三方协助排查。链接只对这一台矿机生效、10 分钟无操作即失效并断开、可随时作废，令牌与控制台登录令牌隔离，关键操作记入审计日志。- 链接地址取自「平台设置 → 公网域名 / IP」，外部可访问；穿透用户自动使用 https；未配置公网地址时给出提示。- 平台设置：「局域网模式」「极简登录页面」改为勾选框。修复勾选框保存后刷新又变回未勾选的问题。- 矿机界面：「当前飞行表」一行显示矿工运行版本号（如 peakminer 2.17.3）。- 矿机界面：总算力、份额两栏收窄，GPU 小方块固定宽度靠左排列，第二层显示温度与风扇。- 修复矿机被误显示为离线：前端不再用浏览器本地时钟判断在线状态，只认服务端的权威状态。- 修复用户服务器的部署方式显示为「Ubuntu 直接部署」，现在正确显示「Windows 程序」。",
-  "docker_image": "rmos-server:0.16.9.0",
-  "assets": {
-    "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.0/rmos-server-linux-amd64",
-      "sha256": "76f0ba2107ad34099b97452dc43ad996c3980936874989d6fdceff0c6e316727"
-    },
-    "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.0/rmos-server.exe",
-      "sha256": "1f55e01af9a801ac1d7c57340592aee53e26820113e60b543e1ea37c146298ae"
-    }
-  }
+    "min_version":  "0.11.0",
+    "version":  "0.16.9.1",
+    "notes":  "- 修复「重新打开程序后又要重新配置初始化向导」：当数据文件不能被当前用户写入时，过去保存会静默失败，控制台显示初始化成功而磁盘上从未写入。\n- 现在初始化完成时若无法写盘会立即报错并回滚，不再假装成功。\n- 保存失败不再被丢弃：会写出「数据保存失败：\u003c文件路径\u003e：\u003c原因\u003e」，并说明需要检查的权限。\n- 覆盖数据文件被拒时改用直接写入，不再整笔丢失。\n- 启动时自动检测数据目录与数据文件是否可写，不可写则为当前用户补授权限（只授权，不删除数据、不改内容）。\n- 修复「打开服务器日志失败：Access is denied.」：日志文件不可写时自动改用新的日志文件继续启动。\n- 修复矿机安装命令里出现 127.0.0.1：总服务器控制器现在会下发本机真实局域网地址，安装命令不再使用回环地址、也不再使用容器网桥地址。\n- 修复前端资源长期停留在旧版：只读或受限文件不再导致整个目录刷新被放弃。\n- 修复在线升级版本判断不识别预发布后缀（beta 不再被当成比正式版更新）。\n",
+    "docker_image":  "rmos-server:0.16.9.1",
+    "assets":  {
+                   "linux-amd64":  {
+                                       "url":  "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.1/rmos-server-linux-amd64",
+                                       "sha256":  "8a7f604dd26e5d335581486da69c6efa9be6a3075767c3a777227cf020a07ead"
+                                   },
+                   "windows-amd64":  {
+                                         "url":  "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.1/rmos-server.exe",
+                                         "sha256":  "baf4cce7377f1f25dcce006f293efe82e8496e47e8213ee264ffcd80fef0490f"
+                                     }
+               }
 }
