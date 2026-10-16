@@ -1,16 +1,16 @@
 {
-    "min_version":  "0.11.0",
-    "version":  "0.16.9.1",
-    "notes":  "- 修复「重新打开程序后又要重新配置初始化向导」：当数据文件不能被当前用户写入时，过去保存会静默失败，控制台显示初始化成功而磁盘上从未写入。\n- 现在初始化完成时若无法写盘会立即报错并回滚，不再假装成功。\n- 保存失败不再被丢弃：会写出「数据保存失败：\u003c文件路径\u003e：\u003c原因\u003e」，并说明需要检查的权限。\n- 覆盖数据文件被拒时改用直接写入，不再整笔丢失。\n- 启动时自动检测数据目录与数据文件是否可写，不可写则为当前用户补授权限（只授权，不删除数据、不改内容）。\n- 修复「打开服务器日志失败：Access is denied.」：日志文件不可写时自动改用新的日志文件继续启动。\n- 修复矿机安装命令里出现 127.0.0.1：总服务器控制器现在会下发本机真实局域网地址，安装命令不再使用回环地址、也不再使用容器网桥地址。\n- 修复前端资源长期停留在旧版：只读或受限文件不再导致整个目录刷新被放弃。\n- 修复在线升级版本判断不识别预发布后缀（beta 不再被当成比正式版更新）。\n",
-    "docker_image":  "rmos-server:0.16.9.1",
-    "assets":  {
-                   "linux-amd64":  {
-                                       "url":  "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.1/rmos-server-linux-amd64",
-                                       "sha256":  "8a7f604dd26e5d335581486da69c6efa9be6a3075767c3a777227cf020a07ead"
-                                   },
-                   "windows-amd64":  {
-                                         "url":  "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.9.1/rmos-server.exe",
-                                         "sha256":  "baf4cce7377f1f25dcce006f293efe82e8496e47e8213ee264ffcd80fef0490f"
-                                     }
-               }
+  "min_version": "0.11.0",
+  "version": "0.16.10.0",
+  "notes": "- 插件体系整体改造：平台插件管理改为「上传插件包」，包内 `plugin.json` 是唯一说明书（名称、显示名、版本、平台、介绍、详细说明、可配置参数、界面信息框），管理员只上传不填表；上传后先存为草稿，核对信息后点「发布」矿机才可安装。- 矿机插件页列出服务器上全部已发布插件，卡片显示内容由插件自己声明（`ui.metrics` → `plugin-stats/<名称>.json` → 心跳 `metrics`）。按钮改为「安装 / 启用·停用 / 卸载」三态：卸载只影响本机，不动服务器记录与其他矿机。- 矿场插件页支持「批量启用」（未安装的先安装再启用）与「停止所有插件」。- 每次矿机上线（含重连）都会重发插件期望状态，矿机本地状态被写坏、客户端升级、离线期间的改动都能自动收敛；新的完整状态命令会取代仍在排队中的旧命令，避免重连时重放旧决定。- 心跳只更新活状态（status/error/metrics），不再整体覆盖控制台设定的期望状态。- 修正插件信息框长文本被省略号截断的问题（防抽水插件的状态说明此前显示成「运行中：正在…」）：长值跨整行换行显示。- 客户端停止/卸载插件时先发 SIGTERM 并等待进程退出（最多 4 秒）才强制结束，插件得以撤销自己的系统改动（如 iptables 规则），不会留下「规则在、监听已死」的阻断状态。- 飞行表启动顺序改为：先应用超频 → 等超频结果（成功或失败）或最多 15 秒 → 再启动 Miner。- 旧插件记录迁移：草稿/发布是新概念，此前创建的插件记录没有 `published` 字段（读成 false 会显示为草稿并让矿机停跑），现在加载时把「enabled 但没有 published」的记录视为已发布。- 文档：`docs/PLUGIN_API.md` 按新实现重写；`docs/PITFALLS.md` 新增 pkill 自匹配、同文件读写清空、重建结构体漏字段静默清零三条。",
+  "docker_image": "rmos-server:0.16.10.0",
+  "assets": {
+    "linux-amd64": {
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.0/rmos-server-linux-amd64",
+      "sha256": "36d9e576d241f0632a2317eee10c6034a27f13bb3e255e4d84fad6af92a865c8"
+    },
+    "windows-amd64": {
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.0/rmos-server.exe",
+      "sha256": "7ecd91a9aa3a2290fbd2818cf6a8ea4a2e249f87c9a62dfd0bc506af7eeffad1"
+    }
+  }
 }
