@@ -1,16 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.10.3",
+  "version": "0.16.10.4",
   "notes": "- 修复插件包无法上传：上传接口此前用的是硬编码的 `/master/plugins/upload`，绕过了其他接口都会走的    「按服务器角色翻译路径」逻辑。在用户服务器（slave，真实路由是 `/api/v1/slave/...`）上，打到 master    前缀只会得到 405 空响应，界面因此只能显示笼统的「上传失败」，怎么重试都不会成功。    现在上传与其它接口走同一条路径，会自动翻译前缀并在 405/404 时重试。- 允许同一个插件保留多个版本：上传时只有「同名且同版本」才覆盖，其余情况新建记录。现场可以同时保留    1.0.3 与 1.0.4，由操作者决定哪台矿机装哪一版（矿机侧按插件 ID 精确对应版本）。- 插件列表改为按「名称 → 版本倒序」排序。此前直接遍历 map，同名插件的多个版本会散落在列表各处、    顺序看起来是随机的。",
-  "docker_image": "rmos-server:0.16.10.3",
+  "docker_image": "rmos-server:0.16.10.4",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.3/rmos-server-linux-amd64",
-      "sha256": "7f5bc0718a82f97aa06b587926a3787d6a725baaab31d8141bb9cd4e546cbb41"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.4/rmos-server-linux-amd64",
+      "sha256": "43e2e364de68b98f87f72e0d088ffb7ec6bb8ef2a877df5390477a9f81bc7c26"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.3/rmos-server.exe",
-      "sha256": "3a5b0f3847db56e3d7049c4de0d7a999108790e5aea3bb2b949744da224d40e8"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.4/rmos-server.exe",
+      "sha256": "6ba6d1d78dbd575a7fab2b25e638f661cee993cd61cf315e8bfb09faf40c2741"
     }
   }
 }
