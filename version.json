@@ -1,16 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.10.0",
-  "notes": "- 插件体系整体改造：平台插件管理改为「上传插件包」，包内 `plugin.json` 是唯一说明书（名称、显示名、版本、平台、介绍、详细说明、可配置参数、界面信息框），管理员只上传不填表；上传后先存为草稿，核对信息后点「发布」矿机才可安装。- 矿机插件页列出服务器上全部已发布插件，卡片显示内容由插件自己声明（`ui.metrics` → `plugin-stats/<名称>.json` → 心跳 `metrics`）。按钮改为「安装 / 启用·停用 / 卸载」三态：卸载只影响本机，不动服务器记录与其他矿机。- 矿场插件页支持「批量启用」（未安装的先安装再启用）与「停止所有插件」。- 每次矿机上线（含重连）都会重发插件期望状态，矿机本地状态被写坏、客户端升级、离线期间的改动都能自动收敛；新的完整状态命令会取代仍在排队中的旧命令，避免重连时重放旧决定。- 心跳只更新活状态（status/error/metrics），不再整体覆盖控制台设定的期望状态。- 修正插件信息框长文本被省略号截断的问题（防抽水插件的状态说明此前显示成「运行中：正在…」）：长值跨整行换行显示。- 客户端停止/卸载插件时先发 SIGTERM 并等待进程退出（最多 4 秒）才强制结束，插件得以撤销自己的系统改动（如 iptables 规则），不会留下「规则在、监听已死」的阻断状态。- 飞行表启动顺序改为：先应用超频 → 等超频结果（成功或失败）或最多 15 秒 → 再启动 Miner。- 旧插件记录迁移：草稿/发布是新概念，此前创建的插件记录没有 `published` 字段（读成 false 会显示为草稿并让矿机停跑），现在加载时把「enabled 但没有 published」的记录视为已发布。- 文档：`docs/PLUGIN_API.md` 按新实现重写；`docs/PITFALLS.md` 新增 pkill 自匹配、同文件读写清空、重建结构体漏字段静默清零三条。",
-  "docker_image": "rmos-server:0.16.10.0",
+  "version": "0.16.10.1",
+  "notes": "- 修复 GPU 屏蔽命令导致矿工反复重启。    现场：192.168.2.227 三小时内矿工启动 56 次。真因有两条：    ① 客户端处理 `set_gpu_mask` 后不回执，服务器永远认为命令未送达，于是把这条任务无限重发；    ② 服务器只把任务标成 `sent` 而不是 `completed`，任务因此一直留在待办队列里。    而每条屏蔽命令都会重扫 PCI 总线并重启矿工 —— 于是矿工每隔几分钟重启一次。    修复：客户端补上回执；屏蔽集合没有变化时直接忽略重复下发（不再重扫、不再重启）；服务器在命令送达后    直接标记完成，并让新的屏蔽状态取代排队中的旧状态（与 set_plugins 同样的处理）。\"- 诊断日志 `[gpu-fault]` 原来每次探测都打印（每 6~9 秒一行，即使没有故障），把日志淹没、真实问题看不见；    现在只在确有故障或 sysfs 与 nvidia-smi 的卡集合不一致时打印。- 修复插件信息框长文本被省略号截断的问题（状态说明此前显示成「运行中：正在…」），长值改为跨整行换行。- 插件统计文件改为定期刷新：客户端不会替插件定时写 plugin-stats，插件内部缺少定时器时，控制台的    「已运行」会永远停在启动时的值（实测跑了 29 分钟仍显示 26 秒）。- 修正 storage.UpdateRigPlugins 合并时的一处疏漏：心跳只在 UpdatedAt 为空时才写时间戳，导致该字段长期    停在上一次控制台操作的时间。- 旧插件记录迁移：草稿/发布是新概念，此前创建的插件记录没有 published 字段，现在加载时视为已发布。",
+  "docker_image": "rmos-server:0.16.10.1",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.0/rmos-server-linux-amd64",
-      "sha256": "36d9e576d241f0632a2317eee10c6034a27f13bb3e255e4d84fad6af92a865c8"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.1/rmos-server-linux-amd64",
+      "sha256": "c8ef1919d082a50c224c75e06f78b0a76c4626581f918ffb44080c58f10f0d5a"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.0/rmos-server.exe",
-      "sha256": "7ecd91a9aa3a2290fbd2818cf6a8ea4a2e249f87c9a62dfd0bc506af7eeffad1"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.1/rmos-server.exe",
+      "sha256": "9343263ef22536c777ac3ee2d4b3fcf88d87be5ac931dfec0d6550288280aa94"
     }
   }
 }
