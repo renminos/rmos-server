@@ -1,16 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.10.1",
-  "notes": "- 修复 GPU 屏蔽命令导致矿工反复重启。    现场：192.168.2.227 三小时内矿工启动 56 次。真因有两条：    ① 客户端处理 `set_gpu_mask` 后不回执，服务器永远认为命令未送达，于是把这条任务无限重发；    ② 服务器只把任务标成 `sent` 而不是 `completed`，任务因此一直留在待办队列里。    而每条屏蔽命令都会重扫 PCI 总线并重启矿工 —— 于是矿工每隔几分钟重启一次。    修复：客户端补上回执；屏蔽集合没有变化时直接忽略重复下发（不再重扫、不再重启）；服务器在命令送达后    直接标记完成，并让新的屏蔽状态取代排队中的旧状态（与 set_plugins 同样的处理）。\"- 诊断日志 `[gpu-fault]` 原来每次探测都打印（每 6~9 秒一行，即使没有故障），把日志淹没、真实问题看不见；    现在只在确有故障或 sysfs 与 nvidia-smi 的卡集合不一致时打印。- 修复插件信息框长文本被省略号截断的问题（状态说明此前显示成「运行中：正在…」），长值改为跨整行换行。- 插件统计文件改为定期刷新：客户端不会替插件定时写 plugin-stats，插件内部缺少定时器时，控制台的    「已运行」会永远停在启动时的值（实测跑了 29 分钟仍显示 26 秒）。- 修正 storage.UpdateRigPlugins 合并时的一处疏漏：心跳只在 UpdatedAt 为空时才写时间戳，导致该字段长期    停在上一次控制台操作的时间。- 旧插件记录迁移：草稿/发布是新概念，此前创建的插件记录没有 published 字段，现在加载时视为已发布。",
-  "docker_image": "rmos-server:0.16.10.1",
+  "version": "0.16.10.2",
+  "notes": "- 修复插件包无法上传：上传接口此前用的是硬编码的 `/master/plugins/upload`，绕过了其他接口都会走的    「按服务器角色翻译路径」逻辑。在用户服务器（slave，真实路由是 `/api/v1/slave/...`）上，打到 master    前缀只会得到 405 空响应，界面因此只能显示笼统的「上传失败」，怎么重试都不会成功。    现在上传与其它接口走同一条路径，会自动翻译前缀并在 405/404 时重试。- 允许同一个插件保留多个版本：上传时只有「同名且同版本」才覆盖，其余情况新建记录。现场可以同时保留    1.0.3 与 1.0.4，由操作者决定哪台矿机装哪一版（矿机侧按插件 ID 精确对应版本）。- 插件列表改为按「名称 → 版本倒序」排序。此前直接遍历 map，同名插件的多个版本会散落在列表各处、    顺序看起来是随机的。",
+  "docker_image": "rmos-server:0.16.10.2",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.1/rmos-server-linux-amd64",
-      "sha256": "c8ef1919d082a50c224c75e06f78b0a76c4626581f918ffb44080c58f10f0d5a"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.2/rmos-server-linux-amd64",
+      "sha256": "9c7c05e4a1bea1b114ab2c5e1e5d0c68de2d98570f9a0c4029225b50d5a58a99"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.1/rmos-server.exe",
-      "sha256": "9343263ef22536c777ac3ee2d4b3fcf88d87be5ac931dfec0d6550288280aa94"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.10.2/rmos-server.exe",
+      "sha256": "cf6c5e9fb72f3d0bb0551aa6e054e009ccb14431ff82f33afb3eae12b8d854a7"
     }
   }
 }
