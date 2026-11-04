@@ -1,16 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.11.0",
-  "notes": "- 修复插件包无法上传：上传接口此前用的是硬编码的 `/master/plugins/upload`，绕过了其他接口都会走的    「按服务器角色翻译路径」逻辑。在用户服务器（slave，真实路由是 `/api/v1/slave/...`）上，打到 master    前缀只会得到 405 空响应，界面因此只能显示笼统的「上传失败」，怎么重试都不会成功。    现在上传与其它接口走同一条路径，会自动翻译前缀并在 405/404 时重试。- 允许同一个插件保留多个版本：上传时只有「同名且同版本」才覆盖，其余情况新建记录。现场可以同时保留    1.0.3 与 1.0.4，由操作者决定哪台矿机装哪一版（矿机侧按插件 ID 精确对应版本）。- 插件列表改为按「名称 → 版本倒序」排序。此前直接遍历 map，同名插件的多个版本会散落在列表各处、    顺序看起来是随机的。",
-  "docker_image": "rmos-server:0.16.11.0",
+  "version": "0.16.12.0",
+  "notes": "v0.16.12.0（正式版）**Miner 软件管理（新功能）**- 服务器可代下 Miner 安装包：勾选「服务器提供 Miner 下载服务」后，服务器把 Miner 下载到本机并校验，  矿机从本服务器下载，不再依赖 GitHub 连通性。- 新增两个保留数量：「服务器保留 Miner 版本数量」（下载到本机的版本数）与  「最大 Miner 版本保留数量」（界面列出的上限，默认 10）。超出保留数量的老版本不再占本机空间，  下载地址自动回落成 GitHub 原始地址，老飞行表仍然可用。- 来源支持关键字白名单 + 黑名单；来源表单由总服务器发布，用户服务器自动对齐（改名/删除会同步清理）。- 已下载 Miner 增加「详情」：按版本显示来源（本服务器 / GitHub）、下载地址、大小、校验值、下载时间。- 版本新旧按 GitHub 发布日期排序，「保持最新版」跟随真正的最新版本。**飞行表**- 默认「保持最新版」，切换 Miner 不再钉死当时的最新版本。- 下发时按服务器当前状态解析下载地址：已下载校验的版本用本服务器地址，否则回源 GitHub。**矿机**- 新增「清理缓存」：停止挖矿 → 清理已下载的 Miner 包、当前解压目录、旧备份与 miner 日志 →  重新下载并启动。控制台批量操作与单机页面都有入口（刷子图标）。**界面**- 首页 GPU 统计：故障数只统计在线矿机的故障/丢失，离线矿机整体计入离线。- 用户管理：节点管理员不再显示本机余额，显示「总服务器计费」。- 平台管理各页面统一卡片内边距，修正文字贴边框的问题。**修复**- 修复普通服务器上未识别的前缀请求被兜底成 200 HTML，导致 Miner 页面数据为空的问题。- 修复 Miner 安装地址拼错端口（矿机 TCP 端口 vs 控制台端口）导致下载 404 的问题。- 修复同一个 Miner 安装包被并发下载、互相覆盖的问题。- 修复 Miner 启动脚本首行为空行时只报 \"exec format error\" 的问题（现在会给出明确原因）。",
+  "docker_image": "rmos-server:0.16.12.0",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.11.0/rmos-server-linux-amd64",
-      "sha256": "86787286e0a26d63d40c928dcafbbcf6c23a4357c56360ada0371f37a412de14"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.12.0/rmos-server-linux-amd64",
+      "sha256": "f0d8a90013603df23b0d1d60a395527a977aa5013b2693d22e683c8171d60fa0"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.11.0/rmos-server.exe",
-      "sha256": "7147b654cb3fdf701ade934b2eba04cf528504adcce248dbac5723baa18d712c"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.12.0/rmos-server.exe",
+      "sha256": "c8291649355e0d56596027fdaf6930a38dc1a220bca01e8acfd7476300509a4d"
     }
   }
 }
