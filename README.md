@@ -151,6 +151,7 @@ linux类矿机卸载客户端指令：rmos --uninstall，卸载后会恢复原�
 ## 联系方式
 - Discord: https://discord.gg/6TyMkDm796
 - Telgram：https://t.me/+ezlR-xfTzS83MjQ1
+- QQ群：1136405299
 - 使用中出现问题，请在群组中@群主反馈
 
 ## 如果您觉得好用，欢迎打赏支持个token费
