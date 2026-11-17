@@ -1,16 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.12.3",
-  "notes": "v0.16.12.3（正式版）**修复**- 某些服务器上 Miner 永远下载不下来、飞行表只能下发 GitHub 地址的问题：  GitHub API 未配 Token 时会被限流（60 次/小时/IP，实测 403），而版本检查一失败就直接放弃，  连\"下载清单里已有的版本\"都不再做，于是该 Miner 的所有版本长期处于\"未下载\"状态，  飞行表解析出来的地址永远是 GitHub 原始地址，矿机只能回源下载。  现在 API 失败时：先用 releases/latest 兜底发现最新版本（并用历史资产地址推断新的下载地址、  HEAD 校验），兜底也失败时仍然把清单里已有的版本下载到本服务器。  实测：API 403 时仍能发现并下载 OZM 1.8.5，飞行表随之解析成本服务器地址。- 清除超频（批量「清除当前参数」/ 单机「恢复默认」）改成**只清客户端本地超频缓存、不动显卡**：  清除 RMOS 超频意味着改用矿工自己的超频参数，此时若把全 0 应用到显卡上会把矿工设好的超频清掉。  客户端收到 clear_overclock 后只删除本地缓存并回报，重启矿机/切换飞行表时直接跳过超频设置。  控制台同时修正为清除后立即显示\"自动\"，不再回落到矿机上报的旧参数。**界面**- GPU 故障判定前后台统一：矿场列表的 GPU 方块、矿机详情的 GPU 行、故障标签与状态灯使用同一规则；  status 正常但温度/算力/功耗全为 0 的卡也算故障（此前矿场列表标黄、详情页却显示正常）。**兼容性**- 服务端 0.16.12.3 兼容客户端 0.12.7；「清除超频缓存」需要客户端 0.12.7 才有对应处理  （旧客户端收到该命令只会回报错误，不会误改显卡）。",
-  "docker_image": "rmos-server:0.16.12.3",
+  "version": "0.16.13.0",
+  "notes": "服务端 0.16.13.0 正式版## 控制台体验- **飞行表列表**  - 展开预览补齐参数：币种、钱包（名称 + 地址 + 一键复制）、矿池、算法、Miner、安装包、额外参数。  - 钱包名称字号与字重加大（参考 HiveOS 列表层级），Miner 标签降级为辅助信息，长钱包名不再被挤掉。  - 列表行增加描边、圆角与轻投影，白底主题下每行边界清晰。- **白色主题**  - 页面底色由近白改为浅灰蓝（#eef2f7），面板保持纯白，边框加深一档，卡片/行/展开面板都有可辨轮廓。- **剪切板导入**  - 「剪切板」按钮先直接读取系统剪贴板并填入创建面板；读不到时**立即**弹出粘贴窗口（不再等待），    窗口内直接 Ctrl+V 即自动导入。  - 弹窗会说明原因：http 访问下浏览器不提供剪贴板 API；https 下若权限被拒绝，会提示到站点设置里允许。## 剪贴板权限与 HTTPS- 浏览器只在安全上下文（https / localhost）里提供剪贴板读取。服务端现在**同一个端口同时接受 http 和 https**  （按首字节区分 TLS 握手），因此 `https://<服务器>:18808` 可直接打开控制台；矿机下载仍走明文 http，不受影响。- 证书：设置 `RMOS_TLS_CERT` / `RMOS_TLS_KEY` 使用正式证书；或 `RMOS_TLS_SELF_SIGNED=1` 自动生成自签名证书  （SAN 覆盖本机所有 IP、主机名与 `RMOS_TLS_HOSTS` 中的域名）。- `GET /tls-ca.crt` 可下载这张自签名证书，安装到「受信任的根证书颁发机构」后不再出现证书警告。- 可选 `RMOS_TLS_ADDR=:18443` 额外再开一个纯 https 端口。## 导入兼容- 导入 HiveOS / RMOS 剪切板的飞行表时，未指定平台一律按 **linux** 取该平台最新版本，  只有显式 `windows` 才用 windows —— 修掉了\"需要选择 xxx 的平台版本\"的误报。## 其他- 新增单测：`TestDualListenerServesHTTPAndHTTPS`（同端口 http/https 各取一次响应）。",
+  "docker_image": "rmos-server:0.16.13.0",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.12.3/rmos-server-linux-amd64",
-      "sha256": "13666994d08000dd6e410726b905cf3b1a4a59038c34f07ba4ae227e4ef732ff"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.13.0/rmos-server-linux-amd64",
+      "sha256": "bdfb006927afd30ed67d4548d79dde6ad8ca30040d80473675636f33696b8d08"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.12.3/rmos-server.exe",
-      "sha256": "1aaa9ad6352da80c05670cc5d93d8de7135cd66dfa29910ace0a1d9e56343e4d"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.13.0/rmos-server.exe",
+      "sha256": "9099555178871d59e8a74315f1353ba7f68b431b501b7ba93d25e9d81749003d"
     }
   }
 }
