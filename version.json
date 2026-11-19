@@ -1,16 +1,16 @@
 {
   "min_version": "0.11.0",
-  "version": "0.16.13.0",
-  "notes": "服务端 0.16.13.0 正式版## 控制台体验- **飞行表列表**  - 展开预览补齐参数：币种、钱包（名称 + 地址 + 一键复制）、矿池、算法、Miner、安装包、额外参数。  - 钱包名称字号与字重加大（参考 HiveOS 列表层级），Miner 标签降级为辅助信息，长钱包名不再被挤掉。  - 列表行增加描边、圆角与轻投影，白底主题下每行边界清晰。- **白色主题**  - 页面底色由近白改为浅灰蓝（#eef2f7），面板保持纯白，边框加深一档，卡片/行/展开面板都有可辨轮廓。- **剪切板导入**  - 「剪切板」按钮先直接读取系统剪贴板并填入创建面板；读不到时**立即**弹出粘贴窗口（不再等待），    窗口内直接 Ctrl+V 即自动导入。  - 弹窗会说明原因：http 访问下浏览器不提供剪贴板 API；https 下若权限被拒绝，会提示到站点设置里允许。## 剪贴板权限与 HTTPS- 浏览器只在安全上下文（https / localhost）里提供剪贴板读取。服务端现在**同一个端口同时接受 http 和 https**  （按首字节区分 TLS 握手），因此 `https://<服务器>:18808` 可直接打开控制台；矿机下载仍走明文 http，不受影响。- 证书：设置 `RMOS_TLS_CERT` / `RMOS_TLS_KEY` 使用正式证书；或 `RMOS_TLS_SELF_SIGNED=1` 自动生成自签名证书  （SAN 覆盖本机所有 IP、主机名与 `RMOS_TLS_HOSTS` 中的域名）。- `GET /tls-ca.crt` 可下载这张自签名证书，安装到「受信任的根证书颁发机构」后不再出现证书警告。- 可选 `RMOS_TLS_ADDR=:18443` 额外再开一个纯 https 端口。## 导入兼容- 导入 HiveOS / RMOS 剪切板的飞行表时，未指定平台一律按 **linux** 取该平台最新版本，  只有显式 `windows` 才用 windows —— 修掉了\"需要选择 xxx 的平台版本\"的误报。## 其他- 新增单测：`TestDualListenerServesHTTPAndHTTPS`（同端口 http/https 各取一次响应）。",
-  "docker_image": "rmos-server:0.16.13.0",
+  "version": "0.16.13.1",
+  "notes": "服务端 0.16.13.1 正式版## 安全修复（P0）- **单连接打挂服务器**：0.16.13.0 新增的同端口 http/https 监听把 `io.EOF` 当成监听错误上抛，  一次端口扫描（连上就断）就会让进程 `log.Fatal(\"EOF\")` 退出，容器被拉起 —— 表现为「服务器偶尔自己重启」。  现在改用平台侧已验证的双协议监听：坏连接关掉继续 Accept，不再影响服务。- **默认管理员口令**：不再使用代码里写死的 `duanyi` / `rmos123456`（本仓库是公开的）。  未配置 `RMOS_ADMIN_PASS` 时随机生成 18 位口令，**只有全新数据文件**才会把口令写入  `<data>/initial-admin-password.txt` 并打日志；已部署的服务器沿用原有口令，不受影响。- **用户服务器注册密钥**：不再默认回退到公开仓库里的内置值。新总服务器首次启动随机生成 32 位密钥、  持久化到数据卷并写入 `<data>/slave-registration-secret.txt`；老部署保留内置值继续可用（日志会提示更换）。## VPN 工具链- 内置 `rmos-vpn` 更新到 **0.2.0**（支持透明重定向）；服务器对外提供的 `/client/rmos-vpn-linux-amd64` 同步为 0.2.0。- 内嵌模块**只在文件缺失时**落盘，不再每次启动用旧副本覆盖每日镜像下来的新版本  （现场：矿机上能用的新模块被服务器下发的旧模块降级，VPN 挖矿连不上矿池）。- 工具镜像（renminos/rmos-tools）失败后 **1 小时重试**（成功仍为 24 小时一次）；  无更新时只读 `SHA256SUMS.txt` 比对 SHA，不会重复下载几 MB 的二进制。## 控制台- 飞行表展开预览补齐参数；钱包名称放大；白色主题对比度优化。- 剪切板导入：能读就一键导入，读不到立刻弹窗；支持同端口 HTTPS 后可直接读取。- 导入 HiveOS 剪切板时未指定平台按 linux 取最新版本。",
+  "docker_image": "rmos-server:0.16.13.1",
   "assets": {
     "linux-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.13.0/rmos-server-linux-amd64",
-      "sha256": "bdfb006927afd30ed67d4548d79dde6ad8ca30040d80473675636f33696b8d08"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.13.1/rmos-server-linux-amd64",
+      "sha256": "fef5cde05eb514d2953bca6d821c16a62a68e55453bae6aeff53356722d1f452"
     },
     "windows-amd64": {
-      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.13.0/rmos-server.exe",
-      "sha256": "9099555178871d59e8a74315f1353ba7f68b431b501b7ba93d25e9d81749003d"
+      "url": "https://github.com/renminos/rmos-server/releases/download/RMOS-UserServer-0.16.13.1/rmos-server.exe",
+      "sha256": "a54b887485c3c46299c1acc32c4d02156d189ba5eba2a503fa0135a9fe5004d1"
     }
   }
 }
