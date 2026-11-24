@@ -144,8 +144,9 @@ linux类矿机卸载客户端指令：rmos --uninstall，卸载后会恢复原�
 完整的插件开发文档（包格式、环境变量、参数、能做什么/不能做什么、可直接改造的示例插件源码、以及"交给 AI 生成插件"的提示词模板）：**[docs/PLUGIN_API.md](https://github.com/renminos/rmos-server/blob/main/docs/PLUGIN_API.md)**（仓库内路径 `docs/PLUGIN_API.md`）。
 
 ## 示例图片
+<img width="1659" height="629" alt="image" src="https://github.com/user-attachments/assets/325304fe-8cdb-4c7e-bd21-b51dcf5e747a" />
 
-<img width="1710" height="621" alt="43683ae32ea1c9587b51e414e61ae600" src="https://github.com/user-attachments/assets/4c5ee7c5-9e26-4004-8168-31953f419011" />
+<img width="1676" height="1044" alt="image" src="https://github.com/user-attachments/assets/9f415656-9d28-4d94-adbf-67fcf3eaac3e" />
 
 
 ## 联系方式
